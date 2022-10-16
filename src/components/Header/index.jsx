@@ -5,28 +5,39 @@ import Logo from "../../assets/logo.svg"
 const HeaderContainer = styled.nav`
   display: flex;
   justify-content: space-between;
-  width: 1240px;
+  width: 90%;
   height: 68px;
-  left: 100px;
-  top: 40px;
+  margin: 40px 60px 63px 60px;
+  @media screen and (max-width: 768px) {
+    margin: 20px;            
+  }
 `
 const HeaderLogo = styled.img`
   height: 68px;
   width: 210px;
+  @media screen and (max-width: 768px) {
+    height: 47px;
+    width: 145px;             
+  }
 `
 const NavContainer = styled.div`
   height: 34px;
   width: 450px;
   text-align: right;
+  margin-top: 20px;
   a:hover {
     text-decoration-line: underline;
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;   
+    height: 17px;
+    width: 180px;       
   }
 `
 
 const StyledLink = styled(Link)`
 height: 34px;
 width: 116px;
-top: 17px;
 border-radius: nullpx;
 font-family: Montserrat;
 font-size: 24px;
@@ -37,6 +48,13 @@ align-items: flex-end;
 text-align: right;
 color: #FF6060;
 text-decoration: none;
+@media screen and (max-width: 768px) {
+  text-transform: uppercase;
+  font-size: 14px;
+  height: 17px;
+  width: 71px;
+  padding-left: 12px;
+}
 `
 
 function Header() {
