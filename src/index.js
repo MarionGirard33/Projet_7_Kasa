@@ -6,8 +6,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 // import FicheLogement from './pages/FicheLogement'
-// import APropos from './pages/APropos'
-// import Error from './components/Error'
+import About from './pages/About'
+import Error from './components/Error'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,9 +15,9 @@ ReactDOM.render(
     <Header />
     <Routes>
       <Route path="/" element={<Home />} /> 
-      {/* <Route path="/FicheLogement/:id" element={<FicheLogement />} /> 
-      <Route path="/APropos" element={<APropos />} /> 
-      <Route path="*" element={<Error />} /> */}
+      {/* <Route path="/FicheLogement/:id" element={<FicheLogement />} />  */}
+      <Route path="/About" element={<About />} /> 
+      <Route path="*" element={<Error />} />
     </Routes>
     <Footer />
   </BrowserRouter>,

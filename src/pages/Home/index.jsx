@@ -6,7 +6,6 @@ import Card from '../../components/Card'
 
 const HomeWrapper = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   width: 90%;
   margin: 0 60px 63px 60px;
@@ -15,7 +14,7 @@ const HomeWrapper = styled.div`
   }
 `
 
-const Banner = styled.div`
+const Banner = styled.section`
   position: relative;
   display: flex;
   align-items: center;
@@ -49,10 +48,11 @@ const Text = styled.h1`
   }
 `
 
-const CardContainer = styled.div`
+const CardContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 64px;
   height: 100%;
   width: 94%;
   padding: 3%;

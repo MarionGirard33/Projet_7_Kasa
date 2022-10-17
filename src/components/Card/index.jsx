@@ -51,7 +51,7 @@ function Card({ title, cover }) {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
+  cover: PropTypes.string.isRequired,
 }
 
 

@@ -63,7 +63,7 @@ function Header() {
       <Link to="/"><HeaderLogo src={Logo} alt="logo"/></Link>
       <NavContainer>
         <StyledLink to="/">Accueil</StyledLink>
-        <StyledLink to="/A Propos">A Propos</StyledLink>
+        <StyledLink to="/About">A Propos</StyledLink>
       </NavContainer>
     </HeaderContainer>
   )
