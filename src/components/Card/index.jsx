@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+const CardWrapper = styled.div`
+border-radius: 10px;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 4px 4px 8px black;
+        transform: scale(1.01);
+    }
+`
 
 const CardTitle = styled.div`
     position: absolute;
@@ -31,12 +39,6 @@ const CardImage = styled.div`
         width: 100%;
         height: 255px;
       }
-`
-
-const CardWrapper = styled.div`
-    &:hover {
-        cursor: pointer;
-    }
 `
 
 function Card({ title, cover }) {
