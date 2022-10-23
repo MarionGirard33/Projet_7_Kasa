@@ -4,64 +4,105 @@ import previousArrow from '../../assets/previousArrow.svg'
 import nextArrow from '../../assets/nextArrow.svg'
 
 const SlideshowContainer = styled.section`
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 415px;
     width: 100%;
+    margin-bottom: 30px;
+    position: relative;
     @media screen and (max-width: 768px) {
-        justify-content: left;
-        margin-bottom: 22px;
-        height: 111px;
-        border-radius: 10px;
+        margin-bottom: 15px;
+        height: 255px;
     }
 `
 
-const ImageContainer = styled.div`
-position: relative;
-`
+const ImageContainer = styled.div``
 
 const HouseImage = styled.img`
     height: 415px;
     width: 100%;
     border-radius: 25px;
     object-fit: cover;
+    @media screen and (max-width: 768px) {
+        height: 255px;
+        border-radius: 10px;
+    }
 `
 
-const ArrowImage = styled.img`
-z-index: 1;
+const PreviousArrow = styled.img`
+    height: 160px;
+    width: 100px;
+    top: 150px;
+    position: absolute;
+    &:hover {
+        transform: scale(1.03);
+    }
+    @media screen and (max-width: 768px) {
+        height: 60px;
+        width: 35px;
+        top: 110px;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+`
+
+const NextArrow = styled.img`
+    height: 160px;
+    width: 100px;
+    top: 150px;
+    left: 91%;
+    position: absolute;
+    &:hover {
+        transform: scale(1.03);
+    }
+    @media screen and (max-width: 768px) {
+        height: 60px;
+        width: 35px;
+        top: 110px;
+        left: 88%;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 `
 
 const NumberImage = styled.p`
+    color: white;
+    top: 350px;
+    left: 49%;
     position: absolute;
-
+    @media screen and (max-width: 768px) {
+        display: none;
 `
 
 function Slideshow({ props }) {
     const [currentImage, updateImage] = useState(0)
-
+    const length = props.length
     const previousImage = () => {
-       updateImage(currentImage === 0 ? props.length - 1 : currentImage - 1)
+       updateImage(currentImage === 0 ? length - 1 : currentImage - 1)
     }
     const nextImage = () => {
-        updateImage(currentImage === props.length - 1 ? 0 : currentImage + 1)
+        updateImage(currentImage === length - 1 ? 0 : currentImage + 1)
     }
 
     return (
         <SlideshowContainer>
-            {props.length > 1 && <ArrowImage onClick={previousImage} src={previousArrow} alt='flèche: précédent'/>}
-            {props.length > 1 && <ArrowImage onClick={nextImage} src={nextArrow} alt='flèche: suivant' />}
             {props.map((picture, index) => {
-                return ( index === currentImage ? (
-                    <ImageContainer>
-                        <HouseImage key={index} src={picture} alt='logement' />
-                        <NumberImage key={`image-${index}`}>{`${index+1}/${props.length}`}</NumberImage>
+                return ( 
+                    <ImageContainer key={`Image-${index}`}>
+                        {index === currentImage && (
+                            <>
+                            <HouseImage src={picture} alt='logement' />
+                            <NumberImage >{`${index+1}/${length}`}</NumberImage>
+                            </>
+                        )}
                     </ImageContainer>
-                ) : (
-                    <img key={index} src={picture} alt='logement' />
-                ))
-            })}
+                )})} 
+                {length > 1 ? (
+                    <>
+                        <PreviousArrow onClick={previousImage} src={previousArrow} alt='flèche: précédent'/>
+                        <NextArrow onClick={nextImage} src={nextArrow} alt='flèche: suivant' />    
+                    </>
+                ) : null }
         </SlideshowContainer>
     )
 }

@@ -12,32 +12,15 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-const HousingWrapper = styled.div`
-  color: #FF6060;
-`
-
 const OneHouseWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
   align-items: center;
+  color: #FF6060;
   margin: 0 60px 63px 60px;
   @media screen and (max-width: 768px) {
     margin: 0 19px 0 21px;
-  }
-`
-
-const Banner = styled.section`
-  height: 415px;
-  width: 100%;
-  border-radius: 25px;
-  background-size: cover;
-  margin-bottom: 30px;
-  border: black 1px solid;
-  @media screen and (max-width: 768px) {
-    margin-bottom: 15px;
-    height: 255px;
-    border-radius: 10px;
   }
 `
 
@@ -59,7 +42,6 @@ const NameWrapper = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
   };
-  border: red 1px solid;
 `
 
 const Title = styled.h1`
@@ -90,15 +72,15 @@ const Tags = styled.li`
   display: flex:
   list-style: none;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   background: #FF6060;
-  text-align: center;
   margin-right: 10px;
   border-radius: 10px;
   @media screen and (max-width: 768px) {
     width: 84px;
     height: 18px;
+    font-size: 12px;
   }
 `
 
@@ -108,7 +90,6 @@ const HostContainer = styled.div`
   align-items: flex-end;
   width: 50%;
   height: 122px;
-  border: green 1px solid;
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 50px;
@@ -151,7 +132,6 @@ const CollapseContainer = styled.section`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border: black 1px solid;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -209,23 +189,23 @@ function Housing() {
   
   return (
     dataOneHouse && (
-    <HousingWrapper>
+    <>
       {/* {isLoading ? (
         <LoaderWrapper>
           <Loader data-testid="loader" />
         </LoaderWrapper>
       ) : ( */}
         <OneHouseWrapper>
-          <Banner>
-              {<Slideshow props={dataOneHouse.pictures}/>}
-          </Banner>
+          {<Slideshow props={dataOneHouse.pictures}/>}
           <TitleContainer>
             <NameWrapper>
               <Title>{dataOneHouse.title}</Title>
               <Location>{dataOneHouse.location}</Location>
               <TagsContainer>
                 {dataOneHouse.tags.map((tag, index) => (
-                  <Tags key={`Tag-${index}`} tag={tag} />
+                  <Tags key={`Tag-${index}`}>
+                    {tag}
+                  </Tags>
                 ))} 
               </TagsContainer>
             </NameWrapper>
@@ -239,11 +219,15 @@ function Housing() {
           </TitleContainer>
           <CollapseContainer>
             <Collapse title='Description' description={dataOneHouse.description} />
-            <Collapse title='Equipments' description={dataOneHouse.equipments} />
+            <Collapse title='Equipements' description={dataOneHouse.equipments.map((equipment, index) => (
+              <li key={`Equipment-${index}`}>
+                {equipment}
+              </li>
+            ))} />
           </CollapseContainer>
         </OneHouseWrapper>
        {/* )} */}
-    </HousingWrapper>
+    </>
   ))
 }
   

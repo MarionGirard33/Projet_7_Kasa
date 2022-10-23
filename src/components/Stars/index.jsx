@@ -21,9 +21,9 @@ function Stars({ rating }) {
     const stars = []
     for (let i = 0; i < 5; i++) {
         if (i < rating) {
-            stars.push(<Star src={fullStar} alt='étoile pleine' />)
+            stars.push(<Star key={`Star-${i}`} src={fullStar} alt='étoile pleine' />)
         } else {
-            stars.push(<Star src={emptyStar} alt='étoile vide' />)
+            stars.push(<Star key={`Star-${i}`} src={emptyStar} alt='étoile vide' />)
         }
     }
 

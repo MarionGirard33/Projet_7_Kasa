@@ -67,6 +67,7 @@ const CollapseDescription = styled.p`
     align-items: center;
     padding: 25px 0 12px 18px;
     margin: 0;
+    list-style: none;
     text-align: left;
     color: #FF6060;
     background-color: #F6F6F6;
@@ -100,7 +101,6 @@ function Collapse({ title, description }) {
 
 Collapse.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
 }
 
 export default Collapse
