@@ -1,9 +1,11 @@
 import styled from 'styled-components'
-import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Loader } from '../../utils/style/Atoms'
 import { useFetch } from '../../utils/hooks'
 import Slideshow from '../../components/Slideshow'
+import TagsContainer from '../../components/Tags'
+import HostWrapper from '../../components/Host'
 import StarsContainer from '../../components/Stars'
 import Collapse from '../../components/Collapse'
 
@@ -28,17 +30,16 @@ const TitleContainer = styled.section`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 122px;
+  height: 100%;
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    height: 170px;
   };
 `
 
 const NameWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70%;
   @media screen and (max-width: 768px) {
     width: 100%;
   };
@@ -61,34 +62,11 @@ const Location = styled.p`
   };
 `
 
-const TagsContainer = styled.ul`
-  padding: 0;
-  margin-top: 0;
-`
-
-const Tags = styled.li`
-  width: 115px;
-  height: 25px;
-  display: flex:
-  list-style: none;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  background: #FF6060;
-  margin-right: 10px;
-  border-radius: 10px;
-  @media screen and (max-width: 768px) {
-    width: 84px;
-    height: 18px;
-    font-size: 12px;
-  }
-`
-
 const HostContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 50%;
+  width: 30%;
   height: 122px;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -99,39 +77,10 @@ const HostContainer = styled.div`
   };
 `
 
-const HostWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
-const HostName = styled.h2`
-  height: 52px; 
-  width: 93px;
-  text-align: right;
-  font-size: 18px;
-  font-weight: 500;
-  margin-top: 10px; 
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-    margin: 0; 
-  };
-`
-
-const HostPicture = styled.img`
-  width: 64px;
-  height: 64px;
-  border-radius: 50px;
-  margin-left: 10px;
-  @media screen and (max-width: 768px) {
-    width: 38px;
-    height: 38px;
-  };
-`
-
 const CollapseContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 99%;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -139,94 +88,55 @@ const CollapseContainer = styled.section`
   };
 `
 
-
-const dataOneHouse = 
-  {
-  "id": "c67ab8a7",
-  "title": "Appartement cosy",
-  "cover": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-  "pictures": [
-  "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-1.jpg",
-  "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-2.jpg",
-  "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-3.jpg",
-  "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-4.jpg",
-  "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-20-5.jpg"
-  ],
-  "description": "Votre maison loin de chez vous. Que vous veniez de l'autre bout du monde, ou juste de quelques stations de RER, vous vous sentirez chez vous dans notre appartement.",
-  "host": {
-  "name": "Nathalie Jean",
-  "picture": "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/profile-picture-12.jpg"
-  },
-  "rating": "3",
-  "location": "Ile de France - Paris 17e",
-  "equipments": [
-  "Équipements de base",
-  "Micro-Ondes",
-  "Douche italienne",
-  "Frigo",
-  "WIFI"
-  ],
-  "tags": [
-  "Batignolle",
-  "Montmartre"
-  ]
-  }
-
-
 function Housing() {
-  // const { data, isLoading, error } = useFetch(
-  //   `http://localhost:3000/logements.json`
-  // )
-  // const params = useParams()
-  // let dataOneHouse = data.find(oneHouse => oneHouse.id === params.id)
+  const { data, isLoading } = useFetch(
+    `http://localhost:3000/logements.json`
+  )
+  const params = useParams()
+  const [dataOneHouse, setDataOneHouse] = useState(null)
     
-  // useEffect(() => {
-  //   if (!dataOneHouse) {
-  //     console.log("error");
-  //   }
-  // }, [dataOneHouse]);
-  // console.log(dataOneHouse)
-  
+  useEffect(() => {
+    let dataHouse = data?data.find(oneHouse => oneHouse.id === params.id) : null
+    setDataOneHouse(dataHouse)
+  }, [data, params.id]);
+
+  // let navigate = useNavigate();
+  // if (!dataOneHouse) {
+  //   navigate("../error", { replace: true });
+  // }
+  console.log(dataOneHouse)
+    
   return (
     dataOneHouse && (
     <>
-      {/* {isLoading ? (
+      {isLoading ? (
         <LoaderWrapper>
           <Loader data-testid="loader" />
         </LoaderWrapper>
-      ) : ( */}
+      ) : (
         <OneHouseWrapper>
           {<Slideshow props={dataOneHouse.pictures}/>}
           <TitleContainer>
             <NameWrapper>
               <Title>{dataOneHouse.title}</Title>
               <Location>{dataOneHouse.location}</Location>
-              <TagsContainer>
-                {dataOneHouse.tags.map((tag, index) => (
-                  <Tags key={`Tag-${index}`}>
-                    {tag}
-                  </Tags>
-                ))} 
-              </TagsContainer>
+              <TagsContainer tags={dataOneHouse.tags}/>
             </NameWrapper>
             <HostContainer>
-              <HostWrapper>
-                <HostName>{dataOneHouse.host.name}</HostName>
-                <HostPicture src={dataOneHouse.host.picture} alt='hôte'/>
-              </HostWrapper>
+              <HostWrapper host={dataOneHouse.host} />
               <StarsContainer rating={dataOneHouse.rating}/>
             </HostContainer>
           </TitleContainer>
           <CollapseContainer>
-            <Collapse title='Description' description={dataOneHouse.description} />
-            <Collapse title='Equipements' description={dataOneHouse.equipments.map((equipment, index) => (
+            <Collapse title='Description' $width={'46%'} $fontSize='18px' description={dataOneHouse.description} />
+            <Collapse title='Equipements' $width={'46%'} $fontSize='18px' description={dataOneHouse.equipments.map((equipment, index) => (
               <li key={`Equipment-${index}`}>
                 {equipment}
               </li>
             ))} />
           </CollapseContainer>
         </OneHouseWrapper>
-       {/* )} */}
+       )}
     </>
   ))
 }

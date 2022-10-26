@@ -1,40 +1,24 @@
 import styled from 'styled-components'
+import Banner from '../../components/Banner'
 import BannerImg from '../../assets/bannerAbout.png'
 import Collapse from '../../components/Collapse'
 
 const AboutWrapper = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  width: 90%;
-  margin: 0 60px 63px 60px;
+  align-items: center;
+  margin: 0 60px 60px 60px;
   @media screen and (max-width: 768px) {
     margin: 0 19px 0 21px;
   }
 `
 
-const Banner = styled.section`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 223px;
-  width: 100%;
-  border-radius: 25px;
-  background-size: cover;
-  margin-bottom: 43px;
-  @media screen and (max-width: 768px) {
-    justify-content: left;
-    margin-bottom: 22px;
-    border-radius: 10px;
-  }
-`
-
 const DropdownContainer = styled.section`
   display: flex;
+  width: 85%;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 3%;
+  align-items: center;
+  margin-bottom: 80px;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -63,11 +47,10 @@ const collapseData = [
 function About() {
   return (
     <AboutWrapper>
-      <Banner style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${BannerImg})`}} alt="bannière image de forêt" >
-      </Banner>
+      <Banner image={BannerImg} $display='none' alt="bannière image de forêt" />
       <DropdownContainer>
         {collapseData.map((about, index) => 
-          <Collapse 
+          <Collapse $width={'100%'} $fontSize='24px'
             key={`${about.title}-${index}`}
             title={about.title} 
             description={about.description} 

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Banner from '../../components/Banner'
 import BannerImg from '../../assets/banner.png'
 // import logementsList from '../../assets/logements.json'
 import Card from '../../components/Card'
@@ -11,56 +12,29 @@ const HomeWrapper = styled.div`
   flex-direction: column;
   width: 90%;
   margin: 0 60px 63px 60px;
+  @media screen and (max-width: 992px) {
+    margin: 0 45px 0 50px;
+  }
   @media screen and (max-width: 768px) {
     margin: 0 19px 0 21px;
-  }
-`
-
-const Banner = styled.section`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 223px;
-  width: 100%;
-  border-radius: 25px;
-  background-size: cover;
-  margin-bottom: 43px;
-  @media screen and (max-width: 768px) {
-    justify-content: left;
-    margin-bottom: 22px;
-    height: 111px;
-    border-radius: 10px;
-  }
-`
-
-const Text = styled.h1`
-  position: absolute;
-  font-size: 48px;
-  font-weight: 500;
-  height: 68px;
-  width: 705px;
-  color: white;
-  background-color: transparent;
-  @media screen and (max-width: 768px) {
-    width: 217px;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 20px 0 0 15px;
   }
 `
 
 const CardContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 64px;
+  justify-content: center;
+  gap: 50px;
   height: 100%;
   width: 94%;
   padding: 3%;
   padding-bottom: 50px;
   border-radius: 25px;
   background: #F7F7F7;
+  @media screen and (max-width: 992px) {
+    width: 94%;
+    gap: 30px;
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
     flex-direction: column;
@@ -97,9 +71,7 @@ function Home() {
 
   return (
     <HomeWrapper>
-      <Banner style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${BannerImg})`}} alt="bannière image de forêt" >
-          <Text>Chez vous, partout et ailleurs</Text>
-      </Banner>
+      <Banner image={BannerImg} alt="bannière image de forêt" />
       {isLoading ? (
         <LoaderWrapper>
           <Loader data-testid="loader" />
