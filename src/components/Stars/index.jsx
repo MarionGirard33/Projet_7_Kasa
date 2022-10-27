@@ -7,7 +7,6 @@ const StarsContainer = styled.div``
 const Star = styled.img`
     width: 30px;
     height: 30px;
-    display: flex:
     list-style: none;
     margin-left: 10px;
     @media screen and (max-width: 768px) {

@@ -94,16 +94,13 @@ function Housing() {
   )
   const params = useParams()
   const [dataOneHouse, setDataOneHouse] = useState(null)
+  let navigate = useNavigate("/error", { replace: true });
     
   useEffect(() => {
-    let dataHouse = data?data.find(oneHouse => oneHouse.id === params.id) : null
+    let dataHouse = data?data.find(oneHouse => oneHouse.id === params.id) : navigate
     setDataOneHouse(dataHouse)
-  }, [data, params.id]);
-
-  // let navigate = useNavigate();
-  // if (!dataOneHouse) {
-  //   navigate("../error", { replace: true });
-  // }
+  }, [data, params.id, navigate]);
+  
   console.log(dataOneHouse)
     
   return (

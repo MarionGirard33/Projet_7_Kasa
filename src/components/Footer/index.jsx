@@ -40,7 +40,7 @@ const CopyrightFooter = styled.p`
 function Footer() {
   return (
     <FooterContainer>
-      <LogoFooter src={Logo} alt="logo" />
+      <LogoFooter src={Logo} alt="logo de Kasa" />
       <CopyrightFooter >© 2020 Kasa. All rights reserved</CopyrightFooter>
     </FooterContainer>
   )

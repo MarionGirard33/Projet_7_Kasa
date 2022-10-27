@@ -49,7 +49,8 @@ const CollapseVector = styled.img`
     height: 23px;
     width: 20px;
     margin-right: 18px;
-    transform: ${props => props.isOpen ? 'rotate(0deg)' : 'rotate(180deg)'};
+    transform: ${props => props.isOpen ? 'rotate(0deg)' : 'rotate(-180deg)'};
+    transition: transform 500ms;
     @media screen and (max-width: 768px) {
         width: 18px;
     }
@@ -73,7 +74,7 @@ const CollapseDescription = styled.p`
     transform: translateY(-30%);
     padding: ${props => props.isOpen ? '0px' : '25px 0 12px 18px;'};
     height: ${props => props.isOpen ? 0 : 'auto'};
-    transform: ${props => props.isOpen ? 0 : 'translateY(0%);'};
+    transform: ${props => props.isOpen ? null : 'translateY(0%);'};
     transition: transform 600ms;
     @media screen and (max-width: 768px) {
         font-size: 16px;
@@ -81,7 +82,7 @@ const CollapseDescription = styled.p`
         padding-bottom: 30px;
         transform: translateY(-10%);
         padding: ${props => props.isOpen ? '0px' : '25px 0 12px 18px;'};
-        transform: ${props => props.isOpen ? 0 : 'translateY(0%);'};
+        transform: ${props => props.isOpen ? null : 'translateY(0%);'};
     }
 `
 function Collapse({ title, description, $fontSize, $width }) {

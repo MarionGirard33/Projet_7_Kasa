@@ -38,8 +38,6 @@ const NavContainer = styled.div`
 const StyledLink = styled(Link)`
 height: 34px;
 width: 116px;
-border-radius: nullpx;
-font-family: Montserrat;
 font-size: 24px;
 font-weight: 500;
 line-height: 34px;
@@ -60,7 +58,7 @@ text-decoration: none;
 function Header() {
   return (
     <HeaderContainer>
-      <Link to="/"><HeaderLogo src={Logo} alt="logo"/></Link>
+      <Link to="/"><HeaderLogo src={Logo} alt="logo de Kasa"/></Link>
       <NavContainer>
         <StyledLink to="/">Accueil</StyledLink>
         <StyledLink to="/About">A Propos</StyledLink>
