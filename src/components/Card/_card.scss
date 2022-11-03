@@ -1,0 +1,50 @@
+.card {
+    border-radius: 10px;
+    height: 340px;
+    width: 30%;
+    @include breakpoint (small) {
+        width: 100%;
+        height: 255px;
+        margin-bottom: 20px;
+    }
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.01);
+    }
+    &__image {
+        position: relative;
+        background-size: cover;
+        height: 340px;
+        width: 100%;
+        border-radius: 10px;
+        @include breakpoint (small) {
+            width: 100%;
+            height: 255px;
+        }
+    }
+    &__title {
+        position: absolute;
+        height: 52px;
+        width: 280px;
+        left: 20px;
+        top: 268px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 26px;
+        text-align: left;
+        color: $text_color_white;
+        background-color: transparent;
+        @include breakpoint (medium) {
+            height: 100%;
+            width: 150px;
+            left: 19px;
+            top: 210px;
+        }
+        @include breakpoint (small) {
+            height: 52px;
+            width: 295px;
+            left: 19px;
+            top: 188px;
+        }
+    }
+}

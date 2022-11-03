@@ -1,0 +1,12 @@
+/*Déclaration des couleurs*/
+$primary_color:#FF6060;
+$text_color_white:#FFFFFF;
+
+$background_white: #FFFFFF;
+$background_black: #000000;
+$background_gray: #F7F7F7;
+
+/*Déclaration des breakpoints*/
+$bp-S: 768px !default; /*smartphone ou tablette portrait*/
+$bp-M: 992px !default; /*tablette paysage ou desktop*/
+$bp-L: 1224px !default; /*desktop*/

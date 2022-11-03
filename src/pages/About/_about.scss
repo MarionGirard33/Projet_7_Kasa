@@ -1,0 +1,23 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 60px 60px 60px;
+  @include breakpoint (small) {
+    margin: 0 19px 0 21px;
+  }
+  h1 {
+    display: none;
+  }
+}
+
+.dropdown-container {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+  @include breakpoint (small) {
+    width: 100%;
+  }
+}

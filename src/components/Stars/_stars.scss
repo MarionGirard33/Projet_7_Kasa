@@ -1,0 +1,11 @@
+.star {
+    width: 30px;
+    height: 30px;
+    list-style: none;
+    margin-left: 10px;
+    @include breakpoint (small) {
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+      };
+}

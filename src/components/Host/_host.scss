@@ -1,0 +1,26 @@
+.host {
+    display: flex;
+    flex-direction: row;
+    &__name {
+        height: 52px; 
+        width: 93px;
+        text-align: right;
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 10px; 
+        @include breakpoint (small) {
+            font-size: 14px;
+            margin: 0; 
+        }
+    }
+    &__picture {
+        width: 64px;
+        height: 64px;
+        border-radius: 50px;
+        margin-left: 10px;
+        @include breakpoint (small) {
+            width: 38px;
+            height: 38px;
+        }
+    }
+}

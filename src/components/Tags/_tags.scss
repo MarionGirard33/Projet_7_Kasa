@@ -1,0 +1,27 @@
+.tags {
+    padding: 0;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__tag {
+        width: 160px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        color: $text_color_white;
+        font-size: 15px;
+        font-weight: 500;
+        background: $primary_color;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        @include breakpoint (small) {
+        width: 130px;
+        height: 18px;
+        font-size: 12px;
+        }
+    }
+}
