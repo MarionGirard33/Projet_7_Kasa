@@ -1,8 +1,9 @@
 
-function Banner({ image }) {
+function Banner({ image, alt, text }) {
     return (
-        <section className='banner' style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${image})`}} >
-                  <h1 className='banner__text'>Chez vous, partout et ailleurs</h1>
+        <section className='banner'>
+            <img src={image} alt={alt} />        
+            <h1 className='banner__text'>{text}</h1>
         </section>
     )
 };

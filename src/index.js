@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Housing from './pages/Housing';
 import About from './pages/About';
-import Error from './components/Error';
+import Error from './pages/Error';
 import "./style/normalize.css";
 import "./style/main.scss";
 

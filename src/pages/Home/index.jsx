@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <div className='home'>
-      <Banner image={BannerImg} alt="bannière image de forêt" />
+      <Banner image={BannerImg} alt={"bannière image de forêt"} text={"Chez vous, partout et ailleurs"} />
       {isLoading ? (
         <div className='loader-container'>
           <Loader data-testid="loader" />

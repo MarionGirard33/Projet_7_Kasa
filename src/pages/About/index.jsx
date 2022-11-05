@@ -25,7 +25,7 @@ const collapseData = [
 function About() {
   return (
     <div className='about-container'>
-      <Banner image={BannerImg} alt="bannière image de forêt" />
+      <Banner image={BannerImg} alt={"bannière image de montagne"} />
       <section className='dropdown-container'>
         {collapseData.map((about, index) => 
           <Collapse $width={'100%'} $fontSize='24px'

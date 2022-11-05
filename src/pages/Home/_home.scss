@@ -12,6 +12,11 @@
     @include breakpoint (small) {
       height: 111px;
     }
+    img {
+      @include breakpoint (small) {
+        height: 111px;
+      }
+    }
   }
 }
 
